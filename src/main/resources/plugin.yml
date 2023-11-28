@@ -1,0 +1,21 @@
+name: Core
+version: '${project.version}'
+main: me.basil.core.Main
+api-version: '1.20'
+commands:
+  heal:
+    description: Set player health & hunger to full
+  config:
+    description: Read and set config data
+  feed:
+    description: Set player hunger to full
+  fly:
+    description: Toggle flight on and off
+  vanish:
+    description: Toggle visibility on and off
+  punish:
+    description: Open punish GUI
+  message:
+    description: Private message a player
+  reply:
+    description: Reply to a private message
