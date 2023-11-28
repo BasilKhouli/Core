@@ -1,13 +1,30 @@
 package me.basil.core.enchantments;
 
+import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.enchantments.EnchantmentTarget;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
 import org.bukkit.inventory.ItemStack;
 
-public class AutoSmeltingEnchantment extends Enchantment {
+public class AutoSmeltingEnchantment extends Enchantment implements Listener {
     public AutoSmeltingEnchantment(NamespacedKey key) {
-        super(key);
+        super(NamespacedKey.minecraft("auto_smelting"));
+    }
+
+    @EventHandler
+    public void onBlockBreak(BlockBreakEvent e) {
+
+        if (!e.isDropItems()) return;
+        if (e.getPlayer().getInventory().getItemInMainHand() == null) return;
+        if (e.getPlayer().getInventory().getItemInMainHand().getItemMeta().hasEnchant(this)) return;
+
+        e.setDropItems(false);
+        // e.getBlock().getWorld().dropItemNaturally(e.getBlock().getLocation())
+        //Set up ore list and reference it here
+
     }
 
     @Override
