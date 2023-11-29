@@ -19,3 +19,5 @@ commands:
     description: Private message a player
   reply:
     description: Reply to a private message
+  profile:
+    description: Open up player profile

@@ -1,6 +1,7 @@
 package me.basil.core;
 
 import me.basil.core.commands.*;
+import me.basil.core.commands.gui.ProfileGui;
 import me.basil.core.commands.messaging.MessageCommand;
 import me.basil.core.commands.messaging.ReplyCommand;
 import me.basil.core.commands.moderation.PunishCommand;
@@ -8,7 +9,6 @@ import me.basil.core.commands.moderation.VanishCommand;
 import me.basil.core.commands.utility.FeedCommand;
 import me.basil.core.commands.utility.FlyCommand;
 import me.basil.core.commands.utility.HealCommand;
-import me.basil.core.enchantments.AutoSmeltingEnchantment;
 import me.basil.core.listeners.PlayerJoinListener;
 import org.bukkit.Bukkit;
 import org.bukkit.enchantments.Enchantment;
@@ -38,6 +38,7 @@ public final class Main extends JavaPlugin implements Listener {
         getCommand("punish").setExecutor(new PunishCommand());
         getCommand("message").setExecutor(new MessageCommand());
         getCommand("reply").setExecutor(new ReplyCommand());
+        getCommand("profile").setExecutor(new ProfileGui());
 
         // ENCHANTMENTS
 //        AutoSmeltingEnchantment autoSmeltingEnchantment = new AutoSmeltingEnchantment();
