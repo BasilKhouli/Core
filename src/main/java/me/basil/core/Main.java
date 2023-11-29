@@ -36,9 +36,9 @@ public final class Main extends JavaPlugin implements Listener {
         getCommand("reply").setExecutor(new ReplyCommand());
 
         // ENCHANTMENTS
-        AutoSmeltingEnchantment autoSmeltingEnchantment = new AutoSmeltingEnchantment();
-        Bukkit.getPluginManager().registerEvents(autoSmeltingEnchantment, this);
-        registerEnchantment(autoSmeltingEnchantment);
+//        AutoSmeltingEnchantment autoSmeltingEnchantment = new AutoSmeltingEnchantment();
+//        Bukkit.getPluginManager().registerEvents(autoSmeltingEnchantment, this);
+//        registerEnchantment(autoSmeltingEnchantment);
 
     }
 
