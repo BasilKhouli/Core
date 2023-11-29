@@ -9,6 +9,7 @@ import me.basil.core.commands.utility.FeedCommand;
 import me.basil.core.commands.utility.FlyCommand;
 import me.basil.core.commands.utility.HealCommand;
 import me.basil.core.enchantments.AutoSmeltingEnchantment;
+import me.basil.core.listeners.PlayerJoinListener;
 import org.bukkit.Bukkit;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.Listener;
@@ -23,8 +24,11 @@ public final class Main extends JavaPlugin implements Listener {
         getConfig().options().copyDefaults();
         saveDefaultConfig();
 
-        // EVENTS
-        Bukkit.getPluginManager().registerEvents(new Events(), this);
+
+        // LISTENERS
+        Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
+
+
         // COMMANDS
         getCommand("heal").setExecutor(new HealCommand());
         getCommand("config").setExecutor(new ConfigCommand(this));
