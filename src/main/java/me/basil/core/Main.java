@@ -1,7 +1,8 @@
 package me.basil.core;
 
 import me.basil.core.commands.*;
-import me.basil.core.commands.gui.ProfileGui;
+import me.basil.core.commands.gui.FriendsGUICommand;
+import me.basil.core.commands.gui.ProfileGUICommand;
 import me.basil.core.commands.messaging.MessageCommand;
 import me.basil.core.commands.messaging.ReplyCommand;
 import me.basil.core.commands.moderation.PunishCommand;
@@ -9,6 +10,7 @@ import me.basil.core.commands.moderation.VanishCommand;
 import me.basil.core.commands.utility.FeedCommand;
 import me.basil.core.commands.utility.FlyCommand;
 import me.basil.core.commands.utility.HealCommand;
+import me.basil.core.listeners.FriendsGUIListener;
 import me.basil.core.listeners.PlayerJoinListener;
 import org.bukkit.Bukkit;
 import org.bukkit.enchantments.Enchantment;
@@ -27,6 +29,7 @@ public final class Main extends JavaPlugin implements Listener {
 
         // LISTENERS
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
+        Bukkit.getPluginManager().registerEvents(new FriendsGUIListener(), this);
 
 
         // COMMANDS
@@ -38,7 +41,9 @@ public final class Main extends JavaPlugin implements Listener {
         getCommand("punish").setExecutor(new PunishCommand());
         getCommand("message").setExecutor(new MessageCommand());
         getCommand("reply").setExecutor(new ReplyCommand());
-        getCommand("profile").setExecutor(new ProfileGui());
+        getCommand("profile").setExecutor(new ProfileGUICommand());
+        getCommand("friends").setExecutor(new FriendsGUICommand());
+        getCommand("friend").setExecutor(new FriendRequestCommand());
 
         // ENCHANTMENTS
 //        AutoSmeltingEnchantment autoSmeltingEnchantment = new AutoSmeltingEnchantment();
