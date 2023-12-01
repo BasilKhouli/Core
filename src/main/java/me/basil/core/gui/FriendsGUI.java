@@ -17,7 +17,10 @@ public class FriendsGUI {
     public FriendsGUI(Player player, int page) {
         Inventory gui = Bukkit.createInventory(null, 54, "Friends - " + page);
 
-
+        // TEMPORARY SHOWCASE
+        // Need to make a system that adds the faces of players who are friends with the player running the command
+        // Pending friend requests with appear first in the list (Left click to accept, right click to deny)
+        // Click on accepted friends to view player profile
         List<ItemStack> friends = new ArrayList<>();
         for (int i = 0; i < 135; i++) {
             friends.add(new ItemStack(Material.PLAYER_HEAD));

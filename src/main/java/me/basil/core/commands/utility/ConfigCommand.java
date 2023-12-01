@@ -1,4 +1,4 @@
-package me.basil.core.commands;
+package me.basil.core.commands.utility;
 
 import me.basil.core.Main;
 import org.bukkit.command.Command;

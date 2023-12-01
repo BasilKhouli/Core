@@ -1,12 +1,22 @@
-package me.basil.core.commands;
+package me.basil.core.commands.utility;
 
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
-public class FriendRequestCommand implements CommandExecutor {
+public class FriendSystemCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender commandSender, Command command, String s, String[] strings) {
+
+        if (commandSender instanceof Player) {
+            Player player = (Player) commandSender;
+            
+
+
+
+        }
+
         return false;
     }
 }
