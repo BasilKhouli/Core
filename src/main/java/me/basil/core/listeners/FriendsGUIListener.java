@@ -15,6 +15,7 @@ public class FriendsGUIListener implements Listener {
 
     @EventHandler
     public void onInventoryClick(InventoryClickEvent e) {
+        Player player = (Player) e.getWhoClicked();
 
         if (e.getInventory() != null && e.getCurrentItem() != null && e.getView().getTitle().contains("Friends")) {
             int page = Integer.parseInt(e.getInventory().getItem(45).getItemMeta().getLocalizedName());
@@ -27,6 +28,10 @@ public class FriendsGUIListener implements Listener {
                     new FriendsGUI((Player) e.getWhoClicked(), page + 1);
                 }
 
+            }
+
+            if (e.getRawSlot() == 8) {
+                player.closeInventory();
             }
 
             e.setCancelled(true);

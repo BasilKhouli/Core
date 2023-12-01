@@ -12,22 +12,19 @@ import me.basil.core.commands.moderation.VanishCommand;
 import me.basil.core.commands.utility.*;
 import me.basil.core.listeners.FriendsGUIListener;
 import me.basil.core.listeners.PlayerJoinListener;
-import org.bson.Document;
 import org.bukkit.Bukkit;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.Field;
 import java.util.UUID;
+
+
 
 public final class Main extends JavaPlugin implements Listener {
 
     private MongoClient client;
     private MongoDatabase database;
     private MongoCollection players;
+    private UUID uuid;
 
     @Override
     public void onEnable() {
@@ -39,11 +36,9 @@ public final class Main extends JavaPlugin implements Listener {
         players = database.getCollection("players");
 
 
-
         // LISTENERS
         Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), this);
         Bukkit.getPluginManager().registerEvents(new FriendsGUIListener(), this);
-
 
         // COMMANDS
         getCommand("heal").setExecutor(new HealCommand());
@@ -57,23 +52,23 @@ public final class Main extends JavaPlugin implements Listener {
         getCommand("profile").setExecutor(new ProfileGUICommand());
         getCommand("friends").setExecutor(new FriendsGUICommand());
         getCommand("friend").setExecutor(new FriendSystemCommand());
+    }
 
-        // ENCHANTMENTS
+}
+
+// ENCHANTMENTS
 //        AutoSmeltingEnchantment autoSmeltingEnchantment = new AutoSmeltingEnchantment();
 //        Bukkit.getPluginManager().registerEvents(autoSmeltingEnchantment, this);
 //        registerEnchantment(autoSmeltingEnchantment);
 
-    }
 
-    private void registerEnchantment (Enchantment enchantment) {
-        try {
-          Field field = Enchantment.class.getDeclaredField("acceptingNew");
-          field.setAccessible(true);
-          field.set(null, true);
-          Enchantment.registerEnchantment(enchantment);
-        } catch (NoSuchFieldException | IllegalAccessException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-}
+//    private void registerEnchantment (Enchantment enchantment) {
+//        try {
+//          Field field = Enchantment.class.getDeclaredField("acceptingNew");
+//          field.setAccessible(true);
+//          field.set(null, true);
+//          Enchantment.registerEnchantment(enchantment);
+//        } catch (NoSuchFieldException | IllegalAccessException e) {
+//            throw new RuntimeException(e);
+//        }
+//    }

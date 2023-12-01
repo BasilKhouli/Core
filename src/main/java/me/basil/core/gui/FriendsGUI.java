@@ -17,15 +17,19 @@ public class FriendsGUI {
     public FriendsGUI(Player player, int page) {
         Inventory gui = Bukkit.createInventory(null, 54, "Friends - " + page);
 
-        // TEMPORARY SHOWCASE
+        // TO-DO
         // Need to make a system that adds the faces of players who are friends with the player running the command
         // Pending friend requests with appear first in the list (Left click to accept, right click to deny)
         // Click on accepted friends to view player profile
+
+
         List<ItemStack> friends = new ArrayList<>();
         for (int i = 0; i < 135; i++) {
             friends.add(new ItemStack(Material.PLAYER_HEAD));
         }
 
+
+        // NAVIGATE BACK
 
         ItemStack left;
         ItemMeta leftMeta;
@@ -45,6 +49,8 @@ public class FriendsGUI {
         gui.setItem(46, left);
         gui.setItem(47, left);
         gui.setItem(48, left);
+
+        // NAVIGATE NEXT
 
         ItemStack right;
         ItemMeta rightMeta;
@@ -71,6 +77,15 @@ public class FriendsGUI {
             gui.setItem(spacer, is);
             spacer++;
         }
+
+        // CLOSE GUI
+
+        ItemStack exit = new ItemStack(Material.BARRIER);
+        ItemMeta exitMeta = exit.getItemMeta();
+        exitMeta.setDisplayName(ChatColor.DARK_RED + "Exit");
+        exit.setItemMeta(exitMeta);
+
+        gui.setItem(8, exit);
 
 
         player.openInventory(gui);
